@@ -1,4 +1,4 @@
-# accesCenter 👁
+# accessCenter 👁
 
  The project was created to help visually impaired people with accessibility extensions
 
@@ -11,12 +11,12 @@
 ## Try it out in your android:
 Clone the project
 ```bash
-git clone https://github.com/MaxKulakov/accesCenter
+git clone https://github.com/MaxKulakov/accessCenter
 ```
 
 Go to directory
 ```bash
-cd accesCenter
+cd accessCenter
 ```
 
 Install Project
@@ -31,5 +31,5 @@ npx react-native run-android
 
 Or just copy command
 ```bash
-git clone https://github.com/MaxKulakov/accesCenter && cd accesCenter && npm i && npx react-native run-android
+git clone https://github.com/MaxKulakov/accessCenter && cd accessCenter && npm i && npx react-native run-android
 ```
