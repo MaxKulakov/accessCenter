@@ -7,11 +7,12 @@ import {
     Image,
     ImageBackground,
     Vibration,
+    TextInput,
 } from 'react-native';
 
 import BackAction from '../components/BackActionComponent/BackAction';
-import ChatItemLight from '../components/ChatItemComponent/ChatItemComponentLight';
-import ChatItemDark from '../components/ChatItemComponent/ChatItemComponentDark';
+// import ChatItemLight from '../components/ChatItemComponent/ChatItemComponentLight';
+// import ChatItemDark from '../components/ChatItemComponent/ChatItemComponentDark';
 
 const SmsListScreen = ({navigation}) => {
     const [chats, setChats] = useState([
