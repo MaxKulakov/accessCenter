@@ -96,6 +96,13 @@ const SettingsScreen = ({navigation}) => {
                     value={stayMorzeKeyboard}
                     onPress={toggleMorzeVisibility}
                 />
+                <SettingsActionButtonLight
+                    title="Stay Morze keyboard only"
+                    value={stayMorzeKeyboard}
+                    onPress={() => {
+                        navigation.navigate('Authorization screen')
+                    }}
+                />
             </ImageBackground>
         </SafeAreaView>
     );

@@ -10,6 +10,7 @@ import LocationsScreen from '../screens/LocationsScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import CalendarScreen from '../screens/CalendarScreen';
 import SearchScreen from '../screens/SearchScreen';
+import AuthorizationScreen from '../screens/AuthorizationScreen';
 
 const stackScreens = {
     'Home screen': {
@@ -35,6 +36,9 @@ const stackScreens = {
     },
     'Search screen': {
         screen: screens.SearchScreen,
+    },
+    'Authorization screen': {
+        screen: screens.AuthorizationScreen,
     },
 };
 

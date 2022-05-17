@@ -6,6 +6,7 @@ import SmsListScreen from './SmsListScreen';
 import SmsCurrentChatScreen from './SmsCurrentChatScreen';
 import CalendarScreen from './CalendarScreen';
 import SearchScreen from './SearchScreen';
+import AuthorizationScreen from './AuthorizationScreen';
 
 export default {
     HomeScreen,
@@ -16,4 +17,5 @@ export default {
     SmsCurrentChatScreen,
     CalendarScreen,
     SearchScreen,
+    AuthorizationScreen,
 };
