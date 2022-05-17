@@ -9,7 +9,7 @@ export default {
                         "October", "November", "December"];
 
     var date = new Date().getDate();
-    var month = new Date().getMonth() + 1;
+    var month = new Date().getMonth();
     var year = new Date().getFullYear();
 
     return date + ' ' + monthNames[month] + ' ' + year;
