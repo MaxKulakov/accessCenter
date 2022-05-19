@@ -14,6 +14,7 @@ import ContactItemLight from '../components/ContactItemComponent/ContactItemComp
 import ContactItemDark from '../components/ContactItemComponent/ContactItemComponentDark';
 import ContactSyncComponent from '../components/ContactItemComponent/ContactSyncComponent';
 import Button from '../components/ButtonComponent/Button';
+import Contacts from 'react-native-contacts';
 
 
 const ContactsListScreen = ({navigation}) => {
@@ -62,7 +63,10 @@ const ContactsListScreen = ({navigation}) => {
                     name={contacts[4].name}
                     phoneNum={contacts[4].phoneNum}
                     onPress={() => {
-                      Linking.openURL(`tel:${contacts[4].phoneNum}`)
+                        Contacts.getAll().then(contacts => {
+                            // setContacts(contacts);
+                            console.log(contacts);
+                        });
                     }}
                 />
                 <ContactItemLight
