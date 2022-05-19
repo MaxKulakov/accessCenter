@@ -63,10 +63,8 @@ const ContactsListScreen = ({navigation}) => {
                     name={contacts[4].name}
                     phoneNum={contacts[4].phoneNum}
                     onPress={() => {
-                        Contacts.getAll().then(contacts => {
-                            // setContacts(contacts);
-                            console.log(contacts);
-                        });
+                        //Contacts
+                        console.log(Contacts.ContactList)
                     }}
                 />
                 <ContactItemLight
