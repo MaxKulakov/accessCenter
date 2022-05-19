@@ -11,6 +11,7 @@ import {
 import BackAction from '../components/BackActionComponent/BackAction';
 import SettingsActionButtonDark from '../components/SettingsActionButton/SettingsActionButtonDark';
 import SettingsActionButtonLight from '../components/SettingsActionButton/SettingsActionButtonLight';
+
 import * as CONFIG from '../service/constants';
 
 import asyncStorage from '../utils/asyncStorage';

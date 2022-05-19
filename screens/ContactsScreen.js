@@ -12,6 +12,8 @@ import {
 import BackAction from '../components/BackActionComponent/BackAction';
 import ContactItemLight from '../components/ContactItemComponent/ContactItemComponentLight';
 import ContactItemDark from '../components/ContactItemComponent/ContactItemComponentDark';
+import ContactSyncComponent from '../components/ContactItemComponent/ContactSyncComponent';
+import Button from '../components/ButtonComponent/Button';
 
 
 const ContactsListScreen = ({navigation}) => {
@@ -36,6 +38,11 @@ const ContactsListScreen = ({navigation}) => {
             name: 'Max Kulakov',
             phoneNum: '+7 937 638-21-96',
         },
+        {
+            id: 5,
+            name: 'Contacts',
+            phoneNum: 'Sync Conctacts',
+        },
     ]);
 
     return (
@@ -48,6 +55,14 @@ const ContactsListScreen = ({navigation}) => {
                     title="Contacts"
                     onPress={() => {
                         navigation.goBack();
+                    }}
+                />
+                
+                <ContactSyncComponent
+                    name={contacts[4].name}
+                    phoneNum={contacts[4].phoneNum}
+                    onPress={() => {
+                      Linking.openURL(`tel:${contacts[4].phoneNum}`)
                     }}
                 />
                 <ContactItemLight
