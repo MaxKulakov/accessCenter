@@ -11,6 +11,7 @@ import {
 import BackAction from '../components/BackActionComponent/BackAction';
 import MessageCommon from '../components/MessageComponent/MessageCommon';
 import MessageFromMe from '../components/MessageComponent/MessageFromMe';
+import Keyboard from '../components/KeyboardComponent/Keyboard';
 
 const SmsCurrentChatScreen = ({navigation}) => {
     const {currentInfo} = navigation.state.params;
@@ -64,6 +65,10 @@ const SmsCurrentChatScreen = ({navigation}) => {
                         body={messages[2].body}
                         time={messages[2].time}
                         key={messages[2].id}
+                    />
+                    <Keyboard
+                        onPress={console.log('keyboard')}
+                        label={'Push'}
                     />
                 </ScrollView>
             </ImageBackground>
