@@ -14,6 +14,7 @@ import {Calendar, CalendarList, Agenda} from 'react-native-calendars';
 import BackAction from '../components/BackActionComponent/BackAction';
 import BatteryStats from '../components/BatteryStats/BatteryStats';
 import Button from '../components/ButtonComponent/Button';
+import GoogleButton from '../components/ButtonComponent/GoogleButton';
 import Field from '../components/FieldComponent/Field';
 
 
@@ -41,8 +42,11 @@ const AuthorizationScreen = ({navigation}) => {
                     }}
                 />
                 <Field>
-
                 </Field>
+                <GoogleButton
+                    onPress={getBatteryLevel}
+                    label={'Log In With Google'}
+                />
                 <Button
                     onPress={getBatteryLevel}
                     label={'Log In'}

@@ -30,7 +30,8 @@ const Keyboard = ({onPress, onLongPress, label}) => {
 const styles = StyleSheet.create({
     keyboard: {
         backgroundColor: '#262A25',
-        marginTop: 170,
+        marginTop: 150,
+        borderRadius: 35,
     },
     input: {
         backgroundColor: '#D7E1CA',
