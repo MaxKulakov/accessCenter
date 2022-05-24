@@ -18,3 +18,7 @@ export const STAY_MORZEKEY_ONLY = {
     ENABLED: 'Enabled',
     DISABLED: 'Disabled',
 };
+
+export const SOCKET_URL = {
+    SOCKET_URL: 'http://localhost:8080',
+};
