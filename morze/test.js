@@ -29,3 +29,10 @@ console.log(signalString);
 // console.log(ArrayAvg(arr2));
 
 // console.log(ArrayAvg(arr2) - getMinOfArray(arr2));
+
+// Server
+// mkdir server
+// cd server
+// touch index.js
+// npm init -y
+// npm i @babel/core @babel/node @babel/preset-env express cors socket.io morgan nodemon dotenv
