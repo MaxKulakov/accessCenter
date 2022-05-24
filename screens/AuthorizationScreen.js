@@ -17,6 +17,8 @@ import Button from '../components/ButtonComponent/Button';
 import GoogleButton from '../components/ButtonComponent/GoogleButton';
 import Field from '../components/FieldComponent/Field';
 
+import auth from '@react-native-firebase/auth';
+import { GoogleSignin } from '@react-native-google-signin/google-signin';
 
 
 const AuthorizationScreen = ({navigation}) => {
@@ -28,6 +30,22 @@ const AuthorizationScreen = ({navigation}) => {
     }, 500);
   };
 
+  GoogleSignin.configure({
+    webClientId: '673252697659-g0rifvqid89u1v031pf6rgrhh53bp0kk.apps.googleusercontent.com',
+  });
+
+  const signInWithGoogleAsync = async () => {
+    const { idToken } = await GoogleSignin.signIn();
+    const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+    const user_sign_in = auth().signInWithCredential(googleCredential);
+
+    // user_sign_in.then((user)=>{
+    //   console.log(user);
+    // })
+    // .catch((error)=>{
+    //   console.log(error);
+    // })
+  }
 
   return (
       <SafeAreaView style={{flex: 1}}>
@@ -44,7 +62,7 @@ const AuthorizationScreen = ({navigation}) => {
                 <Field>
                 </Field>
                 <GoogleButton
-                    onPress={getBatteryLevel}
+                    onPress={signInWithGoogleAsync}
                     label={'Log In With Google'}
                 />
                 <Button
