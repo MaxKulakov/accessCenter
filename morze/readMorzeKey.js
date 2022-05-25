@@ -17,14 +17,16 @@ function getMinOfArray(numArray) {
 export function translateKeyToString() {
     var signal = [];
 
+    var keyDownTime = 0;
     KeyEvent.onKeyDownListener((keyEvent) => {
-        const keyUp = keyEvent.keyCode;
-        const keyUpTime = new Date().getMilliseconds();
+        const keyDown = keyEvent.keyCode;
+        const momentKeyDownTime = new Date().getMilliseconds();
+        keyDownTime += momentKeyDownTime;
     });
 
     KeyEvent.onKeyUpListener((keyEvent) => {
-        const keyDown = keyEvent.keyCode;
-        const keyDownTime = new Date().getMilliseconds();
+        const keyUp = keyEvent.keyCode;
+        const keyUpTime = new Date().getMilliseconds();
     });
     
     var pushTime = keyUpTime - keyDownTime;
