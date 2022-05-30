@@ -1,7 +1,8 @@
 import KeyEvent from 'react-native-keyevent';
 import {commonMorzeActions} from '../../morze/morzeActions';
 
-
+function SendMessage () {
+}
 function ArrayAvg(myArray) {
     var i = 0, summ = 0, ArrayLen = myArray.length;
     while (i < ArrayLen) {
@@ -44,10 +45,12 @@ export function translateKeyToString() {
                 signalString += '−';
             }
         }
-
-        KeyEvent.removeKeyDownListener();
-        KeyEvent.removeKeyUpListener();
-
-        return commonMorzeActions(signalString, false);
+        textInput.setState({text: commonMorzeActions(signalString, false)});
     }
+    if (pushTime >= 5000) {
+        SendMessage(this.state.text);
+    }
+
+    KeyEvent.removeKeyDownListener();
+    KeyEvent.removeKeyUpListener();
 };

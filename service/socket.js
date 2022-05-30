@@ -10,7 +10,7 @@ import Message from './components/MessageComponent/MessageCommon';
 
 const socket = io.connect(C.SOCKET_URL);
 
-const App = () => {
+const message = () => {
   const [messages, setMessages] = useState([]);
   const [user, setUser] = useState({});
 
@@ -36,7 +36,7 @@ const App = () => {
 
   return (
     <Message
-      body={message}
+      body={messages}
       time={time}
       name={user}
       key={id}

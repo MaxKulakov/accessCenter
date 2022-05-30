@@ -39,12 +39,12 @@ const AuthorizationScreen = ({navigation}) => {
     const googleCredential = auth.GoogleAuthProvider.credential(idToken);
     const user_sign_in = auth().signInWithCredential(googleCredential);
 
-    // user_sign_in.then((user)=>{
-    //   console.log(user);
-    // })
-    // .catch((error)=>{
-    //   console.log(error);
-    // })
+    user_sign_in.then((user)=>{
+      console.log(user);
+    })
+    .catch((error)=>{
+      console.log(error);
+    })
   }
 
   return (
