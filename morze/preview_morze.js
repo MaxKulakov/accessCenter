@@ -157,9 +157,9 @@ function translateKeyToString(signal) {
     }
 
 
-    // console.log('signal:  ' + signalString);
-    // console.log('avgTime: ' + avgTime);
-    // console.log('decode:  ' + decodeMorse(signalString));
+    console.log('signal:  ' + signalString);
+    console.log('avgTime: ' + avgTime);
+    console.log('decode:  ' + decodeMorse(signalString));
 }
 
 
@@ -167,5 +167,5 @@ function translateKeyToString(signal) {
 
 // var signal = [400, 1200, 1200, 400];
 var signal1 = [400, 1200, 1200, 400, 's', 400, 1200, 400, 's', 400, 400, 's', 400, 1200, 1200, 's', 400, 's', 1200];
-var signal2 = [];
-translateKeyToString(signal1);
+var signal2 = [400, 1200, 's', 400, 1200];
+translateKeyToString(signal2);

@@ -12,19 +12,12 @@
 </head>
 
 <body>
-    <h1>Как работает</h1>
+    <h1>Ввод Морзе</h1>
     <p>Откройте консоль, чтобы видеть время нажатия кнопки и последовательные шаги работы алгоритма. 
-        <a href="https://github.com/MaxKulakov/accessCenter/blob/main/index.html">Исходный код страницы.</a>
+        <a href="https://github.com/MaxKulakov/accessCenter/blob/main/index.html" target="_blank">Исходный код страницы.</a>
     </p>
     <p class="output_code">Сообщение: </p>
-
-    <!-- <input></input> -->
-    <button class="input_button">Перевести</button>
-
-    <!-- <div class="box">
-        <div><strong>Log:</strong></div>
-        <div class="log"></div>
-    </div> -->
+    <button class="input_button">Нажать</button>
 
 </body>
 
@@ -77,6 +70,7 @@
     var keyDownTime; 
     var signal = [];
     var signalString = '';
+    var output_string = ''
 
     let input_button = document.querySelector('.input_button')
     input_button.onmousedown = function(e) {
@@ -92,6 +86,7 @@
         if (pushTime < 3000) {
             signal.push(pushTime);
         } else {
+                signal.push('s');
                 for (var i = 0; i < signal.length; i++){
                     if (signal[i] <= avgTime) {
                         signalString += '·';
@@ -103,18 +98,19 @@
                         signalString += ' ';
                     }
                 }
-            signal.push('s');
-            console.log(signal);
+
+                signal = [];
+                console.log(signalString);
         }
         if (pushTime >= 5000) {
+            output_string += decodeMorse(signalString);
             console.log(decodeMorse(signalString));
-            document.querySelector('.output_code').innerHTML = `<p class="output_code">Сообщение: `+ decodeMorse(signalString) + `</p>`;
+
+            document.querySelector('.output_code').innerHTML = `<p class="output_code">Сообщение: ` + output_string + `</p>`;
             signal = [];
+            signalString = '';
         }
     }
-
-
-
 </script>
 
 
@@ -130,7 +126,7 @@
     }
 
     button {
-        background-color: #4CAF50; /* Green */
+        background-color: green;
         border: none;
         color: white;
         padding: 15px 32px;
@@ -139,19 +135,14 @@
         display: inline-block;
         font-size: 16px;
     }
-    /* .box {
-        width: 500px;
-        height: 300px;
-        border: 1px solid black;
-        padding: 2px 4px;
-        overflow-y: scroll;
-        overflow-x: auto;
+
+    button:hover {
+        opacity: 0.8;
     }
 
-    .log {
-        margin-top: 8px;
-        font-family: monospace;
-    } */
-
+    button:active {
+        opacity: 0.6;
+    }
 </style>
+
 </html>
