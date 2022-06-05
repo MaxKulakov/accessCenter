@@ -4,46 +4,59 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
     <title>Morze Preview</title>
 </head>
 
 <body>
     <h1>Как работает</h1>
-    <p>Абоба</p>
-    <input></input>
+    <p>Откройте консоль, чтобы видеть время нажатия кнопки и последовательные шаги работы алгоритма. 
+        <a href="https://github.com/MaxKulakov/accessCenter/blob/main/index.html">Исходный код страницы.</a>
+    </p>
+    <p class="output_code">Сообщение: </p>
+
+    <!-- <input></input> -->
     <button class="input_button">Перевести</button>
+
+    <!-- <div class="box">
+        <div><strong>Log:</strong></div>
+        <div class="log"></div>
+    </div> -->
+
 </body>
 
 <script>
+    // функция декодирования кода в алфавит
     function decodeMorse(morseCode) {
-    var alphabet = {
-      '·−' : 'а',     '−···' : 'б',     '·−−' : 'в',    '−−·' : 'г',
-      '−··' : 'д',    '·' : 'е',        '···−' : 'ж',   '−−··' : 'з',
-      '··' : 'и',     '·−−−' : 'й',     '−·−' : 'к',    '·−··' : 'л',
-      '−−' : 'м',     '−·' : 'н',       '−−−' : 'о',    '·−−·' : 'п',
-      '·−·' : 'р',    '···' : 'с',      '−' : 'т',      '··−' : 'у',
-      '··−·' : 'ф',   '····' : 'х',     '−·−·' : 'ц',   '−−−·' : 'ч',
-      '−−−−' : 'ш',   '−−·−' : 'щ',     '−−·−−' : 'ъ',  '−·−−' : 'ы',
-      '−··−' : 'ь',   '··−··' : 'э',    '··−−' : 'ю',   '·−·−' : 'я',
-      '·−·−·−' : '.', '·−·−·−' : ',',   '−−−···' : ':', '−−··−−' : '!',
-      '··−··' : '?',  '−····−' : '-',   's' : ' ',
-  
-      '·−−−−' : '1',  '··−−−' : '2',    '···−−' : '3',  '····−' : '4',
-      '·····' : '5',  '−····' : '6',    '−−···' : '7',  '−−−··' : '8',
-      '−−−−·' : '9',  '−−−−−' : '0'
-    }
-  
-    return morseCode
-      .split('   ')
-      .map(
-        a => a
-          .split(' ')
-          .map(
-            b => alphabet[b]
-          ).join('')
-      ).join(' ');
-    }
+        var alphabet = {
+        '·−' : 'а',     '−···' : 'б',     '·−−' : 'в',    '−−·' : 'г',
+        '−··' : 'д',    '·' : 'е',        '···−' : 'ж',   '−−··' : 'з',
+        '··' : 'и',     '·−−−' : 'й',     '−·−' : 'к',    '·−··' : 'л',
+        '−−' : 'м',     '−·' : 'н',       '−−−' : 'о',    '·−−·' : 'п',
+        '·−·' : 'р',    '···' : 'с',      '−' : 'т',      '··−' : 'у',
+        '··−·' : 'ф',   '····' : 'х',     '−·−·' : 'ц',   '−−−·' : 'ч',
+        '−−−−' : 'ш',   '−−·−' : 'щ',     '−−·−−' : 'ъ',  '−·−−' : 'ы',
+        '−··−' : 'ь',   '··−··' : 'э',    '··−−' : 'ю',   '·−·−' : 'я',
+        '·−·−·−' : '.', '·−·−·−' : ',',   '−−−···' : ':', '−−··−−' : '!',
+        '··−··' : '?',  '−····−' : '-',   's' : ' ',
     
+        '·−−−−' : '1',  '··−−−' : '2',    '···−−' : '3',  '····−' : '4',
+        '·····' : '5',  '−····' : '6',    '−−···' : '7',  '−−−··' : '8',
+        '−−−−·' : '9',  '−−−−−' : '0'
+        }
+        return morseCode
+        .split('   ')
+        .map(
+            a => a
+            .split(' ')
+            .map(
+                b => alphabet[b]
+            ).join('')
+        ).join(' ');
+    }
     
     // функция нахождения среднего значения в массиве
     function ArrayAvg(myArray) {
@@ -54,7 +67,6 @@
             }
         return summ / ArrayLen;
     }
-
 
     // функция нахождения минимального значения в массиве
     function getMinOfArray(numArray) {
@@ -96,19 +108,50 @@
         }
         if (pushTime >= 5000) {
             console.log(decodeMorse(signalString));
+            document.querySelector('.output_code').innerHTML = `<p class="output_code">Сообщение: `+ decodeMorse(signalString) + `</p>`;
             signal = [];
         }
     }
 
 
 
-
 </script>
 
+
 <style>
-    body{
+    body {
         background-color: #e6e6e6;
         margin: 10vw;
+        font-family: 'JetBrains Mono', monospace;
     }
+
+    a:visited {
+        color: black;
+    }
+
+    button {
+        background-color: #4CAF50; /* Green */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+    }
+    /* .box {
+        width: 500px;
+        height: 300px;
+        border: 1px solid black;
+        padding: 2px 4px;
+        overflow-y: scroll;
+        overflow-x: auto;
+    }
+
+    .log {
+        margin-top: 8px;
+        font-family: monospace;
+    } */
+
 </style>
 </html>
