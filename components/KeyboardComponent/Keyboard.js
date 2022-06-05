@@ -3,7 +3,7 @@ import {SafeAreaView, StyleSheet, View, Text, Vibration, TouchableOpacity, TextI
 import {commonMorzeActions} from '../../morze/morzeActions';
 
 const Keyboard = ({onPress, onLongPress, label}) => {
-    const [text, onChangeText] = React.useState(""); // Input text here
+    const [text, onChangeText] = React.useState(""); 
 
     return (
         <SafeAreaView
@@ -61,3 +61,6 @@ const styles = StyleSheet.create({
 });
 
 export default Keyboard;
+
+
+

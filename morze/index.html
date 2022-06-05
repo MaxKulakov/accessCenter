@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morze Preview</title>
+</head>
+
+<body>
+    <h1>Как работает</h1>
+    <p>Абоба</p>
+    <input></input>
+    <button class="input_button">Перевести</button>
+</body>
+
+<script>
+    function decodeMorse(morseCode) {
+    var alphabet = {
+      '·−' : 'а',     '−···' : 'б',     '·−−' : 'в',    '−−·' : 'г',
+      '−··' : 'д',    '·' : 'е',        '···−' : 'ж',   '−−··' : 'з',
+      '··' : 'и',     '·−−−' : 'й',     '−·−' : 'к',    '·−··' : 'л',
+      '−−' : 'м',     '−·' : 'н',       '−−−' : 'о',    '·−−·' : 'п',
+      '·−·' : 'р',    '···' : 'с',      '−' : 'т',      '··−' : 'у',
+      '··−·' : 'ф',   '····' : 'х',     '−·−·' : 'ц',   '−−−·' : 'ч',
+      '−−−−' : 'ш',   '−−·−' : 'щ',     '−−·−−' : 'ъ',  '−·−−' : 'ы',
+      '−··−' : 'ь',   '··−··' : 'э',    '··−−' : 'ю',   '·−·−' : 'я',
+      '·−·−·−' : '.', '·−·−·−' : ',',   '−−−···' : ':', '−−··−−' : '!',
+      '··−··' : '?',  '−····−' : '-',   's' : ' ',
+  
+      '·−−−−' : '1',  '··−−−' : '2',    '···−−' : '3',  '····−' : '4',
+      '·····' : '5',  '−····' : '6',    '−−···' : '7',  '−−−··' : '8',
+      '−−−−·' : '9',  '−−−−−' : '0'
+    }
+  
+    return morseCode
+      .split('   ')
+      .map(
+        a => a
+          .split(' ')
+          .map(
+            b => alphabet[b]
+          ).join('')
+      ).join(' ');
+    }
+    
+    
+    // функция нахождения среднего значения в массиве
+    function ArrayAvg(myArray) {
+        var summ = 0, ArrayLen = myArray.length;
+        for (var i = 0; i < ArrayLen; i++)
+            if (myArray[i] != 's') {
+                summ = summ + myArray[i];
+            }
+        return summ / ArrayLen;
+    }
+
+
+    // функция нахождения минимального значения в массиве
+    function getMinOfArray(numArray) {
+        return Math.min.apply(null, numArray);
+    }
+
+
+    var keyDownTime; 
+    var signal = [];
+    var signalString = '';
+
+    let input_button = document.querySelector('.input_button')
+    input_button.onmousedown = function(e) {
+        keyDownTime = +new Date(); 
+    }
+    input_button.onmouseup = function(e) {
+        var endTime = +new Date();
+        var pushTime = (endTime - keyDownTime); 
+        console.log(pushTime);
+
+        var avgTime = Math.round(ArrayAvg(signal));
+
+        if (pushTime < 3000) {
+            signal.push(pushTime);
+        } else {
+                for (var i = 0; i < signal.length; i++){
+                    if (signal[i] <= avgTime) {
+                        signalString += '·';
+                    }
+                    if (signal[i] > avgTime) {
+                        signalString += '−';
+                    }
+                    if (signal[i] == 's') {
+                        signalString += ' ';
+                    }
+                }
+            signal.push('s');
+            console.log(signal);
+        }
+        if (pushTime >= 5000) {
+            console.log(decodeMorse(signalString));
+            signal = [];
+        }
+    }
+
+
+
+
+</script>
+
+<style>
+    body{
+        background-color: #e6e6e6;
+        margin: 10vw;
+    }
+</style>
+</html>
